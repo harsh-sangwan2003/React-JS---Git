@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Intro</title>
+
+    <!-- Diffing Algo -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+
+    <!-- React Virtual DOM  -->
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <!-- Transpiler converts JSX to JS -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+</body>
+
+<script type="text/babel">
+
+    // JS ->
+    let root = document.getElementById('root');
+
+    // let ele = document.createElement('h1');
+    // ele.innerText = 'Hello';
+    // root.appendChild(ele);
+
+    // //object
+    // console.log(typeof ele); 
+
+    // React -> 
+
+    // let ele = React.createElement('h1', {
+    //     children: ['Hello']
+    // })
+    // ReactDOM.render(ele, root);
+
+    // console.log(ele);
+    // console.log(typeof ele);
+
+    // JSX ->
+
+    //functional component
+    function Element({ name = 'default', place = 'New Delhi' }) {
+
+        return (
+            <>
+                <h1>Hello {name}</h1>
+                <h2>{place}</h2>
+            </>
+        )
+    }
+
+    function Main() {
+
+        return (
+            <>
+                <Element name='Udai' place='Delhi' />
+                <Element />
+                <Element />
+                <Element />
+                <Element />
+            </>
+        )
+    }
+
+    ReactDOM.render(<Main />, root);
+
+</script>
+
+</html>
