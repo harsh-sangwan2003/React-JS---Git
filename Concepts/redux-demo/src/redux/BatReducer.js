@@ -3,9 +3,20 @@ const initialState = {
     bats: 20
 }
 
-const BatReducer = (state = initialState) => {
+const BatReducer = (state = initialState, action) => {
 
-    return state;
+    switch (action) {
+
+        case 'BUY_BAT':
+            return {
+                ...state,
+                bats: state.bats - 1
+            }
+
+        default:
+            return state;
+
+    }
 }
 
 export default BatReducer;

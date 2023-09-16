@@ -1,15 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { connect } from 'react-redux';
 
-function Bat() {
-
-    const [bat, setBat] = useState(20); // local to the component
+function Bat(props) {
 
     return (
-        <div>
-            <h1>Bats: {bat}</h1>
-            <button onClick={() => setBat(bat - 1)}>Buy</button>
+        <div style={{ textAlign: 'center' }}>
+            <h1>Bats: {props.bats}</h1>
+            <button onClick={props.buyBat}>Buy Bat</button>
         </div>
     )
 }
 
-export default Bat
+const mapStateToProps = (state) => {
+
+    return {
+
+        bats: state.bats
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+
+    return {
+
+        buyBat: () => dispatch({ type: "BUY_BAT" })
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Bat);

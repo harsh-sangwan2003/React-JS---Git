@@ -1,10 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 import Bat from './components/Bat';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 function App() {
   return (
-   <Bat/>
+    <Provider store={store}>
+      <Bat />
+    </Provider>
   );
 }
 
